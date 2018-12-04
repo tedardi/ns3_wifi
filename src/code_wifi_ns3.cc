@@ -1,3 +1,16 @@
+#include "ns3/core-module.h"
+#include "ns3/network-module.h"
+#include "ns3/internet-module.h"
+#include "ns3/point-to-point-module.h"
+#include "ns3/applications-module.h"
+#include "ns3/wifi-module.h"
+
+using namespace ns3;
+
+NS_LOG_COMPONENT_DEFINE ("Running Code Wifi NS3");
+
+int main(){
+
 NodeContainer clients;
 NodeContainer aps;
 clients.Create(10);
@@ -27,3 +40,5 @@ WifiHelper wifi = WifiHelper::Default();
 wifi.SetStandard(WIFI_PHY_STANDARD_80211g);
 NetDeviceContainer clientDevs;
 clientDevs.Add(wifi.Install(wifiPhy1, wifiMac, clients));
+
+}
