@@ -4,6 +4,20 @@
 #include "ns3/point-to-point-module.h"
 #include "ns3/applications-module.h"
 #include "ns3/wifi-module.h"
+#include "ns3/simulator.h"
+#include "ns3/mobility-module.h"
+#include "ns3/flow-monitor.h"
+#include "ns3/flow-monitor-module.h"
+#include "ns3/flow-monitor-helper.h"
+#include "ns3/olsr-helper.h"
+#include "stdlib.h"
+include <iostream>
+#include <sstream>
+#include <fstream>
+#include <cstdlib>
+#include <string>
+
+
 
 using namespace ns3;
 
@@ -18,9 +32,9 @@ aps.Create(2);
 
 //set position with mobility model left out for brevity
 
-SSid ssid = Ssid ("default-ssid");
+Ssid ssid = Ssid ("default-ssid");
 NqosWifiMacHelper wifiMac = NqosWifiMacHelper::Default();
-wifiMac.SetType("ns3::ApWifiMac", "Ssid", "SsidValue"(ssid));
+wifiMac.SetType("ns3::ApWifiMac", "Ssid", SsidValue(ssid));
 YansWifiChannelHelper wifiChannel = YansWifiChannelHelper::Default();
 
 YansWifiPhyHelper wifiPhy1 = YansWifiPhyHelper::Default();
