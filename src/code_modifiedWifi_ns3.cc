@@ -76,8 +76,8 @@ for(unsigned int i=0; i < clientDevs.GetN()/2; i++){
   Ptr <WifiNetDevice> d1 = clientDevs.Get(i)->GetObject<WifiNetDevice>();
   Ptr <WifiNetDevice> d2 = clientDevs.Get(i + (clientDevs.GetN()/2))->GetObject<WifiNetDevice>();
 
-  Ptr<StaWifiMacJason> mac1 = DynamicCast<StaWifiMacJason>(d1->GetMac());
-  Ptr<StaWifiMacJason> mac2 = DynamicCast<StaWifiMacJason>(d2->getMac());
+  Ptr<StaWifiMac> mac1 = DynamicCast<StaWifiMac>(d1->GetMac());
+  Ptr<StaWifiMac> mac2 = DynamicCast<StaWifiMac>(d2->GetMac());
 
   if((mac1 != NULL) && (mac2 != NULL)){
     mac1->SetOtherInterface(mac2);
